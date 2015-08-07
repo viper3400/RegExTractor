@@ -8,10 +8,10 @@ namespace RegExTractorShared
 {
     public class Finding
     {
-        string Expression { get; set; }
-        string ExpressionFriendlyName { get; set; }
-        string FileName { get; set; }
-        string FileFolder { get; set; }
-        Dictionary<int, Dictionary<int, string>> Match;
+        public string Expression { get; set; }
+        public string ExpressionFriendlyName { get; set; }
+        public string FileName { get; set; }
+        public string FileFolder { get; set; }
+        public List<RegExTractorMatchCollection> Match { get; set; }
     }
 }

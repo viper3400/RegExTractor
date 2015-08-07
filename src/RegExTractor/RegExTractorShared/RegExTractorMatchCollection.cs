@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RegExTractorShared
 {
-    public class RegExSearchTerm
+    public class RegExTractorMatchCollection
     {
-        public string Expression { get; set; }
-        public string ExpressionFriendlyName { get; set; }
+        public int Id { get; set; }
+        public List<RegExTractorMatch> MatchCollection { get; set; }
     }
 }
