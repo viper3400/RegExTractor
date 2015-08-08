@@ -141,27 +141,31 @@ namespace RegExTractorTests
             IRegExCrawler crawler = new SimpleRegExCrawler();
             var actual = crawler.Crawl(regExSearchList, content);
 
-            Assert.AreEqual(expected.FirstOrDefault().Expression, actual.FirstOrDefault().Expression);
-            Assert.AreEqual(expected.FirstOrDefault().ExpressionFriendlyName, actual.FirstOrDefault().ExpressionFriendlyName);
-            Assert.AreEqual(expected.FirstOrDefault().FileFolder, actual.FirstOrDefault().FileFolder);
-            Assert.AreEqual(expected.FirstOrDefault().FileName, actual.FirstOrDefault().FileName);
+            Assert.AreEqual(expected[0].Expression, actual[0].Expression);
+            Assert.AreEqual(expected[0].ExpressionFriendlyName, actual[0].ExpressionFriendlyName);
+            //Assert.AreEqual(expected.FirstOrDefault().FileFolder, actual.FirstOrDefault().FileFolder);
+            //Assert.AreEqual(expected.FirstOrDefault().FileName, actual.FirstOrDefault().FileName);
 
-            var matchCount = actual.FirstOrDefault().Match.Count();
+            var matchCount = actual[0].Match.Count();
             Assert.AreEqual(4, matchCount);
 
-            for (int i = 1; i <= matchCount;  i++)
+           
+            for (int i = 0; i <= matchCount; i++)
             {
-                Assert.AreEqual(expected.FirstOrDefault().Match[i].Id, actual.FirstOrDefault().Match[i].Id);
+                var expectedMatch = expected[0].Match[0];
+                var actualMatch = actual[0].Match[0];
 
-                var collectionCount = actual.FirstOrDefault().Match[i].MatchCollection.Count();
-                Assert.AreEqual(3,collectionCount);
-
-                for (int k = 1; k <= collectionCount; k++)
-                {
-                    Assert.AreEqual(expected.FirstOrDefault().Match[i].MatchCollection[k].Id, actual.FirstOrDefault().Match[i].MatchCollection[k].Id);
-                    Assert.AreEqual(expected.FirstOrDefault().Match[i].MatchCollection[k].Match, actual.FirstOrDefault().Match[i].MatchCollection[k].Match);
-                }
+                Assert.AreEqual(expectedMatch.Id, actualMatch.Id);
+                Assert.AreEqual(expectedMatch.MatchCollection[0].Id, actualMatch.MatchCollection[0].Id);
+                Assert.AreEqual(expectedMatch.MatchCollection[1].Id, actualMatch.MatchCollection[1].Id);
+                Assert.AreEqual(expectedMatch.MatchCollection[2].Id, actualMatch.MatchCollection[2].Id);
             }
+
+
+            
+
+
+            
             
 
             
