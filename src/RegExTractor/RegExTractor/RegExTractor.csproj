@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DummySearchTermProvider.cs" />
     <Compile Include="FindingsXmlFileWriter.cs" />
     <Compile Include="FlatFileWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
