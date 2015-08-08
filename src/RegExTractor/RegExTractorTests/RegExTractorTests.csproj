@@ -50,7 +50,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Testdata\ExpectedFlatFileOutput.txt" />
-    <Content Include="Testdata\ExpectedXmlFileOutput.xml" />
+    <Content Include="Testdata\ExpectedXmlFileOutput.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Testdata\testdata.log">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

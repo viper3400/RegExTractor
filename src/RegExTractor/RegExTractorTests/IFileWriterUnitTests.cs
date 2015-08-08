@@ -62,8 +62,8 @@ namespace RegExTractorTests
                             Id = 1,
                             MatchCollection = new List<RegExTractorMatch>()
                             {
-                                GetRegExTractorTestMatch(1, "Collection 1 Match 1"),
-                                GetRegExTractorTestMatch(2, "Collection 1 Match 2")
+                                GetRegExTractorTestMatch(1, "MatchCollection 1 Match 1"),
+                                GetRegExTractorTestMatch(2, "MatchCollection 1 Match 2")
                             }
                         },
 
@@ -72,7 +72,7 @@ namespace RegExTractorTests
                             Id = 2,
                             MatchCollection = new List<RegExTractorMatch>()
                             {
-                                GetRegExTractorTestMatch(1, "Collection 2 Match 1")                                
+                                GetRegExTractorTestMatch(1, "MatchCollection 2 Match 1")                                
                             }
                         }
                     };
@@ -84,8 +84,8 @@ namespace RegExTractorTests
         public void FindingsXmlWriterTest()
         {
             IFileWriter writer = new FindingsXmlFileWriter();
-            writer.WriteFindings(GetTestFindingList, "actualFlatFileOutput.xml");
-
+            writer.WriteFindings(GetTestFindingList, "actualXmlFileOutput.xml");
+            FileAssert.AreEqual(@".\Testdata\ExpectedXmlFileOutput.xml", "actualXmlFileOutput.xml");
         }
     }
 

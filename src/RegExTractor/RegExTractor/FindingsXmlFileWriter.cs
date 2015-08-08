@@ -32,6 +32,7 @@ namespace RegExTractor
                 xmlWriter.WriteString(finding.FileFolder);
                 xmlWriter.WriteEndElement();
 
+                xmlWriter.WriteStartElement("MatchCollections");
                 foreach (var matchCollection in finding.Match)
                 {
                     xmlWriter.WriteStartElement("MatchCollection");
@@ -42,15 +43,20 @@ namespace RegExTractor
                         xmlWriter.WriteStartElement("Match");
                         xmlWriter.WriteAttributeString("Id", match.Id.ToString());
                         xmlWriter.WriteString(match.Match);
+                        // end <Match>
                         xmlWriter.WriteEndElement();
                     }
 
                     xmlWriter.WriteEndElement();
                 }
+                // end <MatchCollections>
+                xmlWriter.WriteEndElement();
 
+                // end <Finding>
                 xmlWriter.WriteEndElement();
             }
 
+            // end <Findings>
             xmlWriter.WriteEndElement();
             xmlWriter.WriteEndDocument();
             xmlWriter.Close();
