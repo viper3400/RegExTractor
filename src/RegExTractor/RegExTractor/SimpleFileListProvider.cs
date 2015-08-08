@@ -23,7 +23,7 @@ namespace RegExTractor
 
         public List<FileInfo> GetFileList
         {
-            get { return ScanFiles() }
+            get { return ScanFiles(); }
         }
 
         private List<FileInfo> ScanFiles()

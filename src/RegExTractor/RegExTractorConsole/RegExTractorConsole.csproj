@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB6352AB-FBA6-429B-BEBB-0405B92C0992}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{FAADA5EA-CAAB-4C12-B736-5EFD6C2F0380}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RegExTractor</RootNamespace>
-    <AssemblyName>RegExTractor</AssemblyName>
+    <RootNamespace>RegExTractorConsole</RootNamespace>
+    <AssemblyName>RegExTractorConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,17 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SimpleFileListProvider.cs" />
-    <Compile Include="DummySearchTermProvider.cs" />
-    <Compile Include="FindingsXmlFileWriter.cs" />
-    <Compile Include="FlatFileWriter.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleRegExCrawler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RegExTractorShared\RegExTractorShared.csproj">
-      <Project>{526a3933-93f0-4535-8c9f-96b74f0e19b2}</Project>
-      <Name>RegExTractorShared</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RegExTractorModules\RegExTractorModules.csproj">
+      <Project>{035600ac-f3ba-49d5-8058-ecd7df5b9d0f}</Project>
+      <Name>RegExTractorModules</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
