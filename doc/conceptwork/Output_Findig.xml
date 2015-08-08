@@ -1,0 +1,16 @@
+<Findings>
+	<Finding Expression = "" ExpressionFriendlyname="">
+		<FileName></FileName>
+		<FileFolder></FileFolder>
+		<MatchCollections>
+			<MatchCollection id="">
+				<Match id = ""></Match>
+				<Match id = ""></Match>
+			</MatchCollection>
+			<MatchCollection id ="">			
+				<Match id = ""></Match>
+				<Match id = ""></Match>			
+			</MatchCollection>
+		</MatchCollections>
+	</Finding>
+</Findings>
