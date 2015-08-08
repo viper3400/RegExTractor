@@ -170,5 +170,67 @@ namespace RegExTractorTests
 
             
         }
+
+        /// <summary>
+        /// This is a testcase which will test just one regular expression
+        /// with one expected result without overload
+        /// </summary>
+        [TestCase]
+        [Category(TESTCATEGORY)]
+        public void A02_SimpleRexCrawlerTestWithOneExpression()
+        {
+
+            string content = File.ReadAllText("./Testdata/testdata.log");
+
+            var regExSearchTerm = new RegExSearchTerm()
+            {
+                Expression = @"2015-06-27 12:03:04,721  INFO   \[EJB default - 5\] RuleChangeCommand executeChange - Setting entry 00.2285 to MODIFY",
+                ExpressionFriendlyName = "Ex1"
+            };
+
+            var expectedFinding = new Finding()
+            {
+                Expression = @"2015-06-27 12:03:04,721  INFO   \[EJB default - 5\] RuleChangeCommand executeChange - Setting entry 00.2285 to MODIFY",
+                ExpressionFriendlyName = "Ex1",
+                Match = new List<RegExTractorMatchCollection>()
+                {
+                   new RegExTractorMatchCollection()
+                   {
+                       Id = 1,
+                       MatchCollection = new List<RegExTractorMatch>()
+                       {
+                           new RegExTractorMatch()
+                           {
+                               Id = 1,
+                               Match = "2015-06-27 12:03:04,721  INFO   [EJB default - 5] RuleChangeCommand executeChange - Setting entry 00.2285 to MODIFY"
+                           }
+                       }
+                   }
+                }
+            };
+
+            IRegExCrawler crawler = new SimpleRegExCrawler();
+            var actual = crawler.Crawl(new List<RegExSearchTerm>(){ regExSearchTerm}, content);
+
+            var expected = new List<Finding>() { expectedFinding };
+
+            Assert.AreEqual(expected[0].Expression, actual[0].Expression);
+            Assert.AreEqual(expected[0].ExpressionFriendlyName, actual[0].ExpressionFriendlyName);
+            //Assert.AreEqual(expected.FirstOrDefault().FileFolder, actual.FirstOrDefault().FileFolder);
+            //Assert.AreEqual(expected.FirstOrDefault().FileName, actual.FirstOrDefault().FileName);
+
+            var matchCount = actual[0].Match.Count();
+            Assert.AreEqual(1, matchCount);
+
+
+            for (int i = 0; i <= matchCount; i++)
+            {
+                var expectedMatch = expected[0].Match[0];
+                var actualMatch = actual[0].Match[0];
+
+                Assert.AreEqual(expectedMatch.Id, actualMatch.Id);
+                Assert.AreEqual(expectedMatch.MatchCollection[0].Id, actualMatch.MatchCollection[0].Id);
+            }
+        }
     }
 }
