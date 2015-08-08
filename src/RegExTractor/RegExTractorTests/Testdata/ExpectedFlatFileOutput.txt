@@ -1,0 +1,14 @@
+﻿Finding for
+Expression: \d{3}.TEST
+ExpressionFriendlyName: FindingOneExpression
+FileFolder: C:\TEMP
+FileName: Test1.txt
+
+MatchCollection 1
+MatchCollection 1 Match 1
+MatchCollection 1 Match 2
+
+MatchCollection 2
+MatchCollection 2 Match 1
+
+                    

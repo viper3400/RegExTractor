@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Findings>
+  <Finding Expression = "d{3}.TEST" ExpressionFriendlyname="FindingOneExpression">
+    <FileName>Test1.txt</FileName>
+    <FileFolder>C:\TEMP</FileFolder>
+    <MatchCollections>
+      <MatchCollection id="1">
+        <Match id = "1">MatchCollection 1 Match 1</Match>
+        <Match id = "2">MatchCollection 1 Match 2</Match>
+      </MatchCollection>
+      <MatchCollection id ="2">
+        <Match id = "1">MatchCollection 2 Match 1</Match>
+      </MatchCollection>
+    </MatchCollections>
+  </Finding>
+</Findings>
