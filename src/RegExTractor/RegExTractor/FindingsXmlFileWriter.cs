@@ -14,7 +14,7 @@ namespace RegExTractor
         public void WriteFindings(List<Finding> Findings, string OutputFile)
         {
 
-            var xmlWriter = XmlWriter.Create(OutputFile);
+            var xmlWriter = XmlWriter.Create(OutputFile, new XmlWriterSettings(){ Indent = true});            
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("Findings");
 
