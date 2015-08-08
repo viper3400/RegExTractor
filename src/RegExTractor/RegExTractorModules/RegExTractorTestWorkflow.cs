@@ -20,7 +20,7 @@ namespace RegExTractorModules
             {
                 findings.AddRange(mainKernel
                     .Get<IRegExCrawler>()
-                    .Crawl(regExSearchTerms, File.ReadAllText(file.FullName)));
+                    .Crawl(regExSearchTerms, File.ReadAllText(file.FullName),file.Name,file.DirectoryName));
             }
 
             mainKernel.Get<IFileWriter>().WriteFindings(findings, "output.xml");

@@ -8,6 +8,6 @@ namespace RegExTractorShared
 {
     public interface IRegExCrawler
     {
-        List<Finding> Crawl(List<RegExSearchTerm> SearchTerms, string Content);
+        List<Finding> Crawl(List<RegExSearchTerm> SearchTerms, string Content, string FileName, string FileFolder);
     }
 }

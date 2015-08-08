@@ -143,12 +143,12 @@ namespace RegExTractorTests
             var expected = new List<Finding>() { expectedFinding1 };
 
             IRegExCrawler crawler = new SimpleRegExCrawler();
-            var actual = crawler.Crawl(regExSearchList, content);
+            var actual = crawler.Crawl(regExSearchList, content, expected[0].FileName, expected[0].FileFolder);
 
             Assert.AreEqual(expected[0].Expression, actual[0].Expression);
             Assert.AreEqual(expected[0].ExpressionFriendlyName, actual[0].ExpressionFriendlyName);
-            //Assert.AreEqual(expected.FirstOrDefault().FileFolder, actual.FirstOrDefault().FileFolder);
-            //Assert.AreEqual(expected.FirstOrDefault().FileName, actual.FirstOrDefault().FileName);
+            Assert.AreEqual(expected[0].FileFolder, actual[0].FileFolder);
+            Assert.AreEqual(expected[0].FileName, actual[0].FileName);
 
             var matchCount = actual[0].Match.Count();
             Assert.AreEqual(4, matchCount);
@@ -214,14 +214,14 @@ namespace RegExTractorTests
             };
 
             IRegExCrawler crawler = new SimpleRegExCrawler();
-            var actual = crawler.Crawl(new List<RegExSearchTerm>(){ regExSearchTerm}, content);
+            var actual = crawler.Crawl(new List<RegExSearchTerm>(){ regExSearchTerm}, content, expectedFinding.FileName, expectedFinding.FileFolder);
 
             var expected = new List<Finding>() { expectedFinding };
 
             Assert.AreEqual(expected[0].Expression, actual[0].Expression);
             Assert.AreEqual(expected[0].ExpressionFriendlyName, actual[0].ExpressionFriendlyName);
-            //Assert.AreEqual(expected.FirstOrDefault().FileFolder, actual.FirstOrDefault().FileFolder);
-            //Assert.AreEqual(expected.FirstOrDefault().FileName, actual.FirstOrDefault().FileName);
+            Assert.AreEqual(expected[0].FileFolder, actual[0].FileFolder);
+            Assert.AreEqual(expected[0].FileName, actual[0].FileName);
 
             var matchCount = actual[0].Match.Count();
             Assert.AreEqual(1, matchCount);
@@ -403,7 +403,7 @@ namespace RegExTractorTests
 
             // do the magic and crawl!
             IRegExCrawler crawler = new SimpleRegExCrawler();
-            var actual = crawler.Crawl(regExSearchList, content);
+            var actual = crawler.Crawl(regExSearchList, content, expectedFinding1.FileName, expectedFinding1.FileFolder);
 
             // check the results
             // result for finding one

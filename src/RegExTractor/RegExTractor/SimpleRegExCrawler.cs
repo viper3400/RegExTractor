@@ -8,7 +8,7 @@ namespace RegExTractor
 {
     public class SimpleRegExCrawler : IRegExCrawler
     {
-        public List<Finding> Crawl(List<RegExSearchTerm> SearchTerms, string Content)
+        public List<Finding> Crawl(List<RegExSearchTerm> SearchTerms, string Content, string FileName, string FileFolder)
         {
             var findingResultList = new List<Finding>();
 
@@ -21,6 +21,8 @@ namespace RegExTractor
                 {
                     Expression = searchTerm.Expression,
                     ExpressionFriendlyName = searchTerm.ExpressionFriendlyName,
+                    FileName = FileName,
+                    FileFolder = FileFolder,
                     Match = new List<RegExTractorMatchCollection>()
                 };
 
