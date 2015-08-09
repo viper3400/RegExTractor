@@ -16,3 +16,10 @@ This is maybe the first component which could / should be implemented as a proof
 By now, there my be a public List<Finding\> IRegExCrawler.Crawl(List<RegExSearchTerm\>, string Content) method.
 
 ### Test IRegExCrawler
+
+## IFileWriter
+### FindingsXmlFileWriter
+
+* writes an xml file
+* xml file shall contain information about it's exporter (FindingsXmlFileWriter in this case)
+* xml file shall include a version information

@@ -17,6 +17,8 @@ namespace RegExTractor
             var xmlWriter = XmlWriter.Create(OutputFile, new XmlWriterSettings(){ Indent = true});            
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("Findings");
+            xmlWriter.WriteAttributeString("Exportmodule", "FindingsXmlFileWriter");
+            xmlWriter.WriteAttributeString("Exportversion", "1");
 
             foreach (var finding in Findings)
             {

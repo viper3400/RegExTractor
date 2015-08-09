@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Findings>
+<Findings Exportmodule="FindingsXmlFileWriter" Exportversion="1">
   <Finding Expression="\d{3}.TEST" ExpressionFriendlyName="FindingOneExpression">
     <FileName>Test1.txt</FileName>
     <FileFolder>C:\TEMP</FileFolder>
