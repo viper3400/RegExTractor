@@ -6,12 +6,12 @@ using Ninject;
 
 namespace RegExTractorModules
 {
-    public class RegExTractorTestWorkflow
+    public class RegExTractorSimpleWorkflow
     {
-        public void Test()
+        public void Process(string Directory, bool Recursive, string Filter, string SearchTermInputFile, string XmlOutputFile)
         {
             var mainKernel = new StandardKernel(
-                new RegExTractorTestModule(@"C:\Users\Jan\Desktop\DESKTEMP\prod_node2_01.06.2015-30.07.2015"));
+                new RegExTractorSimpleModule(Directory,Recursive,Filter,SearchTermInputFile));
 
             var fileList = mainKernel.Get<IFileListProvider>().GetFileList;
             var regExSearchTerms = mainKernel.Get<IRegExSearchTermProvider>().GetSearchTermList;
@@ -24,7 +24,7 @@ namespace RegExTractorModules
                     .Crawl(regExSearchTerms, File.ReadAllText(file.FullName),file.Name,file.DirectoryName));
             }
 
-            mainKernel.Get<IFileWriter>().WriteFindings(findings, "output.xml");
+            mainKernel.Get<IFileWriter>().WriteFindings(findings, XmlOutputFile);
         }
     }
 }

@@ -6,16 +6,20 @@ using Ninject.Modules;
 
 namespace RegExTractorModules
 {
-    public class RegExTractorTestModule : NinjectModule
-    {
-        //private string directory = @"C:\Users\Jan\Desktop\DESKTEMP\prod_node2_01.06.2015-30.07.2015";
+    public class RegExTractorSimpleModule : NinjectModule
+    {        
         private string directory;
-        private bool recursive = false;
-        private string filter = "*";
+        private bool recursive;
+        private string filter;
+        private string searchTermInputFile;
         
-        public RegExTractorTestModule(string Directory)
+
+        public RegExTractorSimpleModule(string Directory, bool Recursive, string Filter,string SearchTermInputFile)
         {
             directory = Directory;
+            recursive = Recursive;
+            filter = Filter;
+            searchTermInputFile = SearchTermInputFile;
         }
 
         public override void Load()
@@ -26,7 +30,7 @@ namespace RegExTractorModules
                 .WithConstructorArgument("Recursive", recursive)
                 .WithConstructorArgument("Filter", filter);
 
-            Bind<IRegExSearchTermProvider>().To<DummySearchTermProvider>();
+            Bind<IRegExSearchTermProvider>().To<FlatFileSearchTermProvider>().WithConstructorArgument("SearchTermsInputFile", searchTermInputFile);
 
             Bind<IRegExCrawler>().To<SimpleRegExCrawler>();
 

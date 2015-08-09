@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RegExTractorSimpleModule.cs" />
     <Compile Include="RegExTractorTestModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegExTractorSimpleWorkflow.cs" />
     <Compile Include="RegExTractorTestWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>
