@@ -7,8 +7,12 @@ namespace RegExTractorConsole
     {
         static void Main(string[] args)
         {
-            var test = new RegExTractorTestWorkflow();
-            test.Test();
+            var options = new RegExTractorOptions();
+            if (CommandLine.Parser.Default.ParseArguments(args, options))
+            {
+                var workflow = new RegExTractorSimpleWorkflow();
+                workflow.Process(options.Directory, options.Recursive, options.Filter, options.SearchTermInputFile, options.OutputFile);
+            }
             
             Console.WriteLine("Finished ... Press any key ...");
             Console.ReadKey();
