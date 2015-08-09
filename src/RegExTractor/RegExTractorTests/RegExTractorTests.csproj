@@ -45,12 +45,16 @@
   <ItemGroup>
     <Compile Include="IFileWriterUnitTests.cs" />
     <Compile Include="IRegExCrawlerUnitTests.cs" />
+    <Compile Include="IRegExSearchTermProviderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Testdata\ExpectedFlatFileOutput.txt" />
     <Content Include="Testdata\ExpectedXmlFileOutput.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Testdata\IRegExSearchTermProviderTest\FlatFileSearchTerms.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Testdata\testdata.log">

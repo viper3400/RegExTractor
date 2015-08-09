@@ -23,3 +23,10 @@ By now, there my be a public List<Finding\> IRegExCrawler.Crawl(List<RegExSearch
 * writes an xml file
 * xml file shall contain information about it's exporter (FindingsXmlFileWriter in this case)
 * xml file shall include a version information
+
+### IRegExSearchTermProvider
+### FlatFileSearchTermProvider
+
+* Search terms are provided as regular expression
+* in a simple text file
+* one search term per line

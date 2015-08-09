@@ -1,0 +1,2 @@
+﻿(\d{4}-\d{2}-\d{2}).+(CatalogCacheUpdateJob perform)(.+)
+2015-06-27 12:03:04,721  INFO   \[EJB default - 5\] RuleChangeCommand executeChange - Setting entry 00.2285 to MODIFY
