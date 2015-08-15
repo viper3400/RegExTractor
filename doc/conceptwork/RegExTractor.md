@@ -3,7 +3,7 @@
 
 * should be build modular using Ninject
 * should use a NUnit as testing framwork
-* should use .NET 4.5
+* should use .NET 3.5
  
 ## RegExTractorShared.dll
 Contains all shared code as 
