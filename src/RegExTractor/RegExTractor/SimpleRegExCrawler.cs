@@ -68,9 +68,25 @@ namespace RegExTractor
                 // add finding to findig list
                 findingResultList.Add(finding);
             }
-            return findingResultList;
-            
 
+            // report progress
+            var eventArgs = new ReportProgressEventArgs();
+            eventArgs.Message = String.Format(@"Finished search in file {0}\{1}",FileFolder, FileName);                
+            OnSingleFileCrawlFinished(eventArgs);
+            
+            return findingResultList;
         }
+
+
+        protected void OnSingleFileCrawlFinished(ReportProgressEventArgs e)
+        {
+            EventHandler<ReportProgressEventArgs> handler = SingleFileCrawlFinished;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        public event EventHandler<ReportProgressEventArgs> SingleFileCrawlFinished;
     }
 }

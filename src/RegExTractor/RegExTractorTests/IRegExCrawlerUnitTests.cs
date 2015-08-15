@@ -450,5 +450,47 @@ namespace RegExTractorTests
 
 
         }
+
+
+        /// <summary>
+        /// This is a testcase which will test if the SimpleRegExCrawler reports it's progress        
+        /// </summary>
+        [TestCase]
+        [Category(TESTCATEGORY)]
+        public void A04_SimpleRegexCrawlerReportProgressTest()
+        {
+
+            string content = File.ReadAllText("./Testdata/testdata.log");            
+
+            var regExSearchTerm = new RegExSearchTerm()
+            {
+                Expression = @"2015-06-27 12:03:04,721  INFO   \[EJB default - 5\] RuleChangeCommand executeChange - Setting entry 00.2285 to MODIFY",
+                ExpressionFriendlyName = "Ex1"
+            };
+
+            // we are not interessted in search results here, we'd just like to test the event result
+            // we expect a message "Finished search in file xxxx", so we define our expexted fileName
+            var fileFolder = @"C:\Temp";
+            var fileName = @"testfile.dat";            
+
+            var expectedMessage =  @"Finished search in file C:\Temp\testfile.dat";
+            string actualMessage = "";
+
+
+            IRegExCrawler crawler = new SimpleRegExCrawler();
+            crawler.SingleFileCrawlFinished += delegate(object sender, ReportProgressEventArgs e)
+            {
+                actualMessage = e.Message;
+            };
+
+            crawler.Crawl(new List<RegExSearchTerm>() { regExSearchTerm }, content, fileName, fileFolder);
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+
+           
+           
+        }
+
+    
     }
 }

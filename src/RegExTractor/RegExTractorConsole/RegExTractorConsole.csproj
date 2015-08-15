@@ -58,6 +58,10 @@
       <Project>{035600ac-f3ba-49d5-8058-ecd7df5b9d0f}</Project>
       <Name>RegExTractorModules</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RegExTractorShared\RegExTractorShared.csproj">
+      <Project>{526a3933-93f0-4535-8c9f-96b74f0e19b2}</Project>
+      <Name>RegExTractorShared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
