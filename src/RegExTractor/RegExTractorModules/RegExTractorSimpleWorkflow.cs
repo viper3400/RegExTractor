@@ -8,6 +8,7 @@ namespace RegExTractorModules
 {
     public class RegExTractorSimpleWorkflow
     {
+       
         public void Process(string Directory, bool Recursive, string Filter, string SearchTermInputFile, string XmlOutputFile)
         {
             var mainKernel = new StandardKernel(
@@ -24,8 +25,16 @@ namespace RegExTractorModules
             var findings = new List<Finding>();
             foreach (var file in fileList)
             {
-                findings.AddRange(regExCrawler
-                    .Crawl(regExSearchTerms, File.ReadAllText(file.FullName),file.Name,file.DirectoryName));
+                // check if a cancellation of workflow has been requested
+                if (cancellationPending)
+                {
+                    break;
+                }
+                else
+                {
+                    findings.AddRange(regExCrawler
+                        .Crawl(regExSearchTerms, File.ReadAllText(file.FullName), file.Name, file.DirectoryName));
+                }
             }
 
             mainKernel.Get<IFileWriter>().WriteFindings(findings, XmlOutputFile);
@@ -49,6 +58,16 @@ namespace RegExTractorModules
         private void RegExTractorSimpleWorkflow_SingleFileCrawlFinished(object sender, ReportProgressEventArgs e)
         {
             OnSingleFileCrawlFinished(e);
+        }
+
+        // Return a value if a cancellation is pending
+        public bool CancellationPending { get { return cancellationPending; } }
+        private bool cancellationPending = false;
+        
+        // Request async cancel of workflow
+        public void CancelAsync()
+        {
+            cancellationPending = true;
         }
     }
 }
