@@ -83,9 +83,9 @@
             this.checkBoxRecursive.AutoSize = true;
             this.checkBoxRecursive.Location = new System.Drawing.Point(31, 72);
             this.checkBoxRecursive.Name = "checkBoxRecursive";
-            this.checkBoxRecursive.Size = new System.Drawing.Size(251, 21);
+            this.checkBoxRecursive.Size = new System.Drawing.Size(243, 21);
             this.checkBoxRecursive.TabIndex = 5;
-            this.checkBoxRecursive.Text = "Verzeichnis rekursive durchsuchen";
+            this.checkBoxRecursive.Text = "Verzeichnis rekursiv durchsuchen";
             this.checkBoxRecursive.UseVisualStyleBackColor = true;
             // 
             // tBoxFileFilter
