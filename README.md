@@ -6,7 +6,7 @@ Download here: https://github.com/viper3400/RegExTractor/releases/download/1.1.0
 
 View user documentation (only available in german for now): https://github.com/viper3400/RegExTractor/wiki/de:userdocumentation
 
-Check out Notepad++ Plugin here: https://github.com/viper3400/NppRegExTractor/releases/download/1.0.0.0/NppRegExTractor_V1.0.0.zip
+Check out Notepad++ Plugin here: https://github.com/viper3400/NppRegExTractor
 
 RegExTractor won't exist without:
 * Ninject (http://www.ninject.org/)
