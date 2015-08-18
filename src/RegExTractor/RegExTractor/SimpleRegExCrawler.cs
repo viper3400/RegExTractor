@@ -6,8 +6,19 @@ using System.Text.RegularExpressions;
 
 namespace RegExTractor
 {
+    /// <summary>
+    /// SimpleRexExCrawler class provides a simple implementation of IRegExCrawler.
+    /// </summary>
     public class SimpleRegExCrawler : IRegExCrawler
     {
+        /// <summary>
+        /// Parse the given content with the given search terms.
+        /// </summary>
+        /// <param name="SearchTerms"></param>
+        /// <param name="Content"></param>
+        /// <param name="FileName"></param>
+        /// <param name="FileFolder"></param>
+        /// <returns></returns>
         public List<Finding> Crawl(List<RegExSearchTerm> SearchTerms, string Content, string FileName, string FileFolder)
         {
             var findingResultList = new List<Finding>();
@@ -67,12 +78,14 @@ namespace RegExTractor
                 }                
                 // add finding to findig list
                 findingResultList.Add(finding);
+                
+                // report progress
+                var eventArgs = new ReportProgressEventArgs();
+                eventArgs.Message = String.Format(@"Finished search for expression {0} in file {1}\{2}", searchTerm.ExpressionFriendlyName, FileFolder, FileName);
+                OnSingleFileCrawlFinished(eventArgs);
             }
 
-            // report progress
-            var eventArgs = new ReportProgressEventArgs();
-            eventArgs.Message = String.Format(@"Finished search in file {0}\{1}",FileFolder, FileName);                
-            OnSingleFileCrawlFinished(eventArgs);
+            
             
             return findingResultList;
         }

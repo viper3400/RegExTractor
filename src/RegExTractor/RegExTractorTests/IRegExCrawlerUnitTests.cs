@@ -473,7 +473,7 @@ namespace RegExTractorTests
             var fileFolder = @"C:\Temp";
             var fileName = @"testfile.dat";            
 
-            var expectedMessage =  @"Finished search in file C:\Temp\testfile.dat";
+            var expectedMessage =  @"Finished search for expression Ex1 in file C:\Temp\testfile.dat";
             string actualMessage = "";
 
 

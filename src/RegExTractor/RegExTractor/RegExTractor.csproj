@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncRegExCrawler.cs" />
     <Compile Include="FlatFileSearchTermProvider.cs" />
     <Compile Include="SimpleFileListProvider.cs" />
     <Compile Include="DummySearchTermProvider.cs" />
