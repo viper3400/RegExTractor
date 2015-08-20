@@ -12,7 +12,7 @@ namespace RegExTractor
     /// </summary>
     public class AsyncRegExCrawler : IRegExCrawler
     {
-        private List<Finding> resultList;
+        private System.Collections.Queue resultQueue;
         private ManualResetEvent[] manualEvents;        
         
         /// <summary>
@@ -31,7 +31,7 @@ namespace RegExTractor
         /// <seealso cref="SimpleRegExCrawler"/>
         public List<Finding> Crawl(List<RegExSearchTerm> SearchTerms, string Content, string FileName, string FileFolder)        
         {
-            resultList = new List<Finding>();
+            resultQueue = new System.Collections.Queue();
             var threadCount = SearchTerms.Count;
             manualEvents = new ManualResetEvent[threadCount];
             
@@ -43,7 +43,13 @@ namespace RegExTractor
                 ThreadPool.QueueUserWorkItem(DoWork, new object[] { searchTerm, Content, FileName, FileFolder, manualEvents[searchTermIndex]});
             }
             WaitHandle.WaitAll(manualEvents);
-            return resultList;
+            var resultList = new List<Finding>();
+            for (int i = 1; i <= resultQueue.Count; i++)
+            {
+                var dequed = resultQueue.Dequeue();
+                resultList.AddRange(dequed as List<Finding>);
+            }
+            return resultList;         
         }
 
         public event EventHandler<ReportProgressEventArgs> SingleFileCrawlFinished;
@@ -62,7 +68,7 @@ namespace RegExTractor
 
             var regExCrawler = new SimpleRegExCrawler();
             regExCrawler.SingleFileCrawlFinished += regExCrawler_SingleFileCrawlFinished;
-            resultList.AddRange(regExCrawler.Crawl(new List<RegExSearchTerm>() { searchTerm }, content, fileName, fileFolder));
+            resultQueue.Enqueue(regExCrawler.Crawl(new List<RegExSearchTerm>() { searchTerm }, content, fileName, fileFolder));
             manualEvent.Set();
         }
 
@@ -74,6 +80,8 @@ namespace RegExTractor
                 SingleFileCrawlFinished(this, e);
             }
         }
+
+        
            
     }
 }

@@ -43,6 +43,7 @@
     <Compile Include="IFileListProvider.cs" />
     <Compile Include="IFileWriter.cs" />
     <Compile Include="IRegExCrawler.cs" />
+    <Compile Include="IRegExFileIterator.cs" />
     <Compile Include="IRegExSearchTermProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegExSearchTerm.cs" />

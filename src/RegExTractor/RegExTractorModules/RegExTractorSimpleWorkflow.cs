@@ -8,7 +8,9 @@ namespace RegExTractorModules
 {
     public class RegExTractorSimpleWorkflow
     {
-       
+
+        private IRegExFileIterator fileIterator;
+
         public void Process(string Directory, bool Recursive, string Filter, string SearchTermInputFile, string XmlOutputFile)
         {
             var mainKernel = new StandardKernel(
@@ -22,22 +24,18 @@ namespace RegExTractorModules
             var fileList = mainKernel.Get<IFileListProvider>().GetFileList;
             var regExSearchTerms = mainKernel.Get<IRegExSearchTermProvider>().GetSearchTermList;
 
-            var findings = new List<Finding>();
-            foreach (var file in fileList)
-            {
-                // check if a cancellation of workflow has been requested
-                if (cancellationPending)
-                {
-                    break;
-                }
-                else
-                {
-                    findings.AddRange(regExCrawler
-                        .Crawl(regExSearchTerms, File.ReadAllText(file.FullName), file.Name, file.DirectoryName));
-                }
-            }
+            fileIterator = mainKernel.Get<IRegExFileIterator>();
+            fileIterator.SingleFileProcessed += fileIterator_SingleFileProcessed;
+            var findings = fileIterator.Iterate(fileList, regExSearchTerms, regExCrawler);
 
             mainKernel.Get<IFileWriter>().WriteFindings(findings, XmlOutputFile);
+        }
+
+
+
+        void fileIterator_SingleFileProcessed(object sender, ReportProgressEventArgs e)
+        {
+            OnSingleFileCrawlFinished(e);
         }
 
         /// <summary>
@@ -53,21 +51,16 @@ namespace RegExTractorModules
                 handler(this, e);
             }
         }
-
         
         private void RegExTractorSimpleWorkflow_SingleFileCrawlFinished(object sender, ReportProgressEventArgs e)
         {
             OnSingleFileCrawlFinished(e);
         }
 
-        // Return a value if a cancellation is pending
-        public bool CancellationPending { get { return cancellationPending; } }
-        private bool cancellationPending = false;
-        
         // Request async cancel of workflow
         public void CancelAsync()
         {
-            cancellationPending = true;
+            if (fileIterator != null) fileIterator.CancelAsync();            
         }
     }
 }

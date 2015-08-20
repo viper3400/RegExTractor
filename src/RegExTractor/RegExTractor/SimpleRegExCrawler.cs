@@ -85,8 +85,8 @@ namespace RegExTractor
                 OnSingleFileCrawlFinished(eventArgs);
             }
 
-            
-            
+
+            if (findingResultList == null) throw new ArgumentNullException();
             return findingResultList;
         }
 
