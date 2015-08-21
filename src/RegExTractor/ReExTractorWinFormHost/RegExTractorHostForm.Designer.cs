@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegExTractorHostForm));
             this.SuspendLayout();
             // 
             // RegExTractorHostForm
@@ -36,8 +37,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(711, 511);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegExTractorHostForm";
-            this.Text = "RegExTractor";            
+            this.Text = "RegExTractor";
             this.ResumeLayout(false);
 
         }
