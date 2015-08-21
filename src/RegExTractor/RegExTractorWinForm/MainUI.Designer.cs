@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearchDirectory = new System.Windows.Forms.TextBox();
             this.bntSelectDirectory = new System.Windows.Forms.Button();
@@ -41,6 +42,9 @@
             this.tBoxOutputFile = new System.Windows.Forms.TextBox();
             this.btnSelectOutputFile = new System.Windows.Forms.Button();
             this.btnDoWork = new System.Windows.Forms.Button();
+            this.ctxMenuMainUi = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctxMenuMainUi.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +52,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 17);
+            this.label1.Size = new System.Drawing.Size(197, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Zu durchsuchendes Verzeichnis";
             // 
@@ -74,7 +78,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Dateifilter";
             // 
@@ -83,7 +87,7 @@
             this.checkBoxRecursive.AutoSize = true;
             this.checkBoxRecursive.Location = new System.Drawing.Point(31, 72);
             this.checkBoxRecursive.Name = "checkBoxRecursive";
-            this.checkBoxRecursive.Size = new System.Drawing.Size(243, 21);
+            this.checkBoxRecursive.Size = new System.Drawing.Size(225, 20);
             this.checkBoxRecursive.TabIndex = 5;
             this.checkBoxRecursive.Text = "Verzeichnis rekursiv durchsuchen";
             this.checkBoxRecursive.UseVisualStyleBackColor = true;
@@ -101,7 +105,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(28, 164);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 17);
+            this.label3.Size = new System.Drawing.Size(223, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Datei mit regulären Suchausdrücken";
             // 
@@ -127,7 +131,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(28, 220);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 17);
+            this.label4.Size = new System.Drawing.Size(93, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "Ausgabedatei";
             // 
@@ -158,6 +162,20 @@
             this.btnDoWork.UseVisualStyleBackColor = true;
             this.btnDoWork.Click += new System.EventHandler(this.btnDoWork_Click);
             // 
+            // ctxMenuMainUi
+            // 
+            this.ctxMenuMainUi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.überToolStripMenuItem});
+            this.ctxMenuMainUi.Name = "ctxMenuMainUi";
+            this.ctxMenuMainUi.Size = new System.Drawing.Size(153, 48);
+            // 
+            // überToolStripMenuItem
+            // 
+            this.überToolStripMenuItem.Name = "überToolStripMenuItem";
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Text = "Über ...";
+            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
+            // 
             // RegExTractorMainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -177,6 +195,8 @@
             this.Controls.Add(this.label1);
             this.Name = "RegExTractorMainUI";
             this.Size = new System.Drawing.Size(500, 341);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RegExTractorMainUI_MouseClick);
+            this.ctxMenuMainUi.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,6 +217,8 @@
         private System.Windows.Forms.TextBox tBoxOutputFile;
         private System.Windows.Forms.Button btnSelectOutputFile;
         private System.Windows.Forms.Button btnDoWork;
+        private System.Windows.Forms.ContextMenuStrip ctxMenuMainUi;
+        private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
 
     }
 }

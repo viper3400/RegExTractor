@@ -78,6 +78,20 @@ namespace RegExTractorWinForm
             ProgressDialog progress = new ProgressDialog(searchDirectory, checkBoxRecursive.Checked, tBoxFileFilter.Text, searchTermFile, outputFile);
             progress.ShowDialog();
         }
+
+        private void RegExTractorMainUI_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {                
+                ctxMenuMainUi.Show(PointToScreen(e.Location));
+            }
+        }
+
+        private void überToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var aboutDialog = new About();
+            aboutDialog.ShowDialog();
+        }
        
     }
 }
