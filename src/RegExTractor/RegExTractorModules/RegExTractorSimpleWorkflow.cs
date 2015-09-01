@@ -29,6 +29,8 @@ namespace RegExTractorModules
             var findings = fileIterator.Iterate(fileList, regExSearchTerms, regExCrawler);
 
             mainKernel.Get<IFileWriter>().WriteFindings(findings, XmlOutputFile);
+            fileIterator = null;
+        
         }
 
 
