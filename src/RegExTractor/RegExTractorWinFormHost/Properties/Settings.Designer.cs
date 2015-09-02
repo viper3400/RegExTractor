@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ReExTractorWinFormHost.Properties {
+namespace RegExTractorWinFormHost.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

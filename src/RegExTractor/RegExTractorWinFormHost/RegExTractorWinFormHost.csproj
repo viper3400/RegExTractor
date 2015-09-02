@@ -7,8 +7,8 @@
     <ProjectGuid>{2896536F-3FFD-4B0A-9DD7-DB99FE11CCE3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReExTractorWinFormHost</RootNamespace>
-    <AssemblyName>ReExTractor</AssemblyName>
+    <RootNamespace>RegExTractorWinFormHost</RootNamespace>
+    <AssemblyName>RegExTractor</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -35,6 +35,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>search_folder.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -92,6 +95,9 @@
     <Content Include="search_folder.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>powershell.exe -ExecutionPolicy Bypass -file $(SolutionDir)\publish.ps1 $(SolutionDir)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

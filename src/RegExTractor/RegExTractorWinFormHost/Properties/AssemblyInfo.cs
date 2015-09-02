@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReExTractorWinFormHost")]
+[assembly: AssemblyTitle("RegExTractorWinFormHost")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ReExTractorWinFormHost")]
+[assembly: AssemblyProduct("RegExTractorWinFormHost")]
 [assembly: AssemblyCopyright("Jan Graefe 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

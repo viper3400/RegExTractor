@@ -1,4 +1,4 @@
-﻿namespace ReExTractorWinFormHost
+﻿namespace RegExTractorWinFormHost
 {
     partial class RegExTractorHostForm
     {

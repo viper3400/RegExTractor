@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using RegExTractorWinForm;
 
-namespace ReExTractorWinFormHost
+namespace RegExTractorWinFormHost
 {
     public partial class RegExTractorHostForm : Form
     {
