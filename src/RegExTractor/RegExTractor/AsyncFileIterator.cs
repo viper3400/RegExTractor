@@ -29,20 +29,20 @@ namespace RegExTractor
         {
             var start = DateTime.Now;
             resultQueue = new System.Collections.Queue();
-            var chunkedFileLists = ChunkBy(FileList, 64);
+            var chunkedFileLists = ChunkBy(FileList, 4);
             foreach (var chunkedList in chunkedFileLists)
             {
                 SpawnThreads(chunkedList, SearchTermList, Crawler);
             }
             var duration = DateTime.Now - start;
-            System.Diagnostics.Trace.TraceInformation(String.Format("Duration: {0}:{1}:{2} ",duration.Hours, duration.Minutes, duration.Seconds));
+            System.Diagnostics.Trace.TraceInformation(String.Format("Duration: {0}:{1}:{2} ", duration.Hours, duration.Minutes, duration.Seconds));
 
             var resultList = new List<Finding>();
             for (int i = 1; i <= resultQueue.Count; i++)
             {
-               resultList.AddRange((List<Finding>)resultQueue.Dequeue());
+                resultList.AddRange((List<Finding>)resultQueue.Dequeue());
             }
-            return resultList;
+            return resultList;             
         }
 
         private void SpawnThreads(List<FileInfo> FileList, List<RegExSearchTerm> SearchTermList, IRegExCrawler Crawler)
