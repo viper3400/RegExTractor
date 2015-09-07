@@ -34,9 +34,9 @@ Copy-Item $ConsoleReleaseDir\RegExTractorModules.dll -Destination $ConsoleStageP
 Copy-Item $ConsoleReleaseDir\RegExTractorShared.dll -Destination $ConsoleStagePath
 
 # Copy RegExTractorWinForm
-Copy-Item $WinFormReleaseDir\RegExTractor.exe -Destination $WinFormStagePath
+Copy-Item $WinFormReleaseDir\RegExTractorWin.exe -Destination $WinFormStagePath
 Copy-Item $WinFormReleaseDir\Ninject.dll -Destination $WinFormStagePath
-Copy-Item $WinFormReleaseDir\RegExTractor.exe.config -Destination $WinFormStagePath
+Copy-Item $WinFormReleaseDir\RegExTractorWin.exe.config -Destination $WinFormStagePath
 Copy-Item $WinFormReleaseDir\RegExTractor.dll -Destination $WinFormStagePath
 Copy-Item $WinFormReleaseDir\RegExTractorModules.dll -Destination $WinFormStagePath
 Copy-Item $WinFormReleaseDir\RegExTractorShared.dll -Destination $WinFormStagePath
@@ -45,7 +45,7 @@ Copy-Item $WinFormReleaseDir\RegExTractorWinForm.dll -Destination $WinFormStageP
 
 
 
-$file = $WinFormReleaseDir + "\RegExTractor.exe"
+$file = $WinFormReleaseDir + "\RegExTractor.dll"
 $ass = [System.Reflection.Assembly]::LoadFile($file)
 $v = $ass.GetName().Version;
 $version = [string]::Format("{0}.{1:0}.{2:0}",$v.Major, $v.Minor, $v.Build)
