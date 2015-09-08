@@ -15,14 +15,7 @@ namespace RegExTractorWinForm
         {
             InitializeComponent();
         }
-        
-        private string searchDirectory;
-        private bool recursive;
-        private string filter;
-        private string searchTermFile;
-        private string outputFile;
-
-
+             
         private void bntSelectDirectory_Click(object sender, EventArgs e)
         {
             SelectDirectory();
@@ -31,10 +24,11 @@ namespace RegExTractorWinForm
         private void SelectDirectory()
         {
             var folderBrowser = new FolderBrowserDialog();
+            // if already a path was set in ui pass it to dialog
+            folderBrowser.SelectedPath = tbSearchDirectory.Text;
             if (folderBrowser.ShowDialog() == DialogResult.OK)
-            {
-                searchDirectory = folderBrowser.SelectedPath;
-                tbSearchDirectory.Text = searchDirectory;
+            {            
+                tbSearchDirectory.Text = folderBrowser.SelectedPath;
             }
         }
 
@@ -49,10 +43,22 @@ namespace RegExTractorWinForm
             fileDialog.Multiselect = false;
             fileDialog.Title = "Datei mit Suchbegriffen auswählen";
             fileDialog.Filter = "Text-Dateien|*.txt|Alle Dateien|*.*";
+
+
+            try
+            {
+                var initalDir = System.IO.Path.GetDirectoryName(tBoxSearchTermFile.Text);
+                fileDialog.InitialDirectory = initalDir;
+                fileDialog.FileName = System.IO.Path.GetFileName(tBoxSearchTermFile.Text);
+            }
+            catch (System.ArgumentException)
+            {               
+                // Path may be emtpy, do nothing and go ahead
+            }
+
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                searchTermFile = fileDialog.FileName;
-                tBoxSearchTermFile.Text = searchTermFile;
+                tBoxSearchTermFile.Text = fileDialog.FileName;                
             }
         }
 
@@ -66,16 +72,27 @@ namespace RegExTractorWinForm
             var fileDialog = new SaveFileDialog();
             fileDialog.Title = "XML Ausgabe speichern unter ...";
             fileDialog.Filter = "XML-Dateien|*.xml|Alle Dateien|*.*";
+
+            try
+            {
+                var initalDir = System.IO.Path.GetDirectoryName(tBoxOutputFile.Text);
+                fileDialog.InitialDirectory = initalDir;
+                fileDialog.FileName = System.IO.Path.GetFileName(tBoxOutputFile.Text);
+            }
+            catch (System.ArgumentException)
+            {
+                // Path may be emtpy, do nothing and go ahead
+            }
+            
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                outputFile = fileDialog.FileName;
-                tBoxOutputFile.Text = outputFile;
+                tBoxOutputFile.Text = fileDialog.FileName;                
             }
         }
 
         private void btnDoWork_Click(object sender, EventArgs e)
         {
-            ProgressDialog progress = new ProgressDialog(searchDirectory, checkBoxRecursive.Checked, tBoxFileFilter.Text, searchTermFile, outputFile);
+            ProgressDialog progress = new ProgressDialog(tbSearchDirectory.Text, checkBoxRecursive.Checked, tBoxFileFilter.Text, tBoxSearchTermFile.Text, tBoxOutputFile.Text);
             progress.ShowDialog();
         }
 
