@@ -677,6 +677,8 @@ namespace RegExTractorTests
             {
                 Expression = @"2015-06-27 12:03:04,721  INFO   \[EJB default - 5\] RuleChangeCommand executeChange - Setting entry 00.2285 to MODIFY",
                 ExpressionFriendlyName = "Ex1",
+                FileFolder = @"D:\WORK\RegExTractor\src\RegExTractor\RegExTractorTests\bin\Debug\Testdata",
+                FileName = "testdata.log",
                 Match = new List<RegExTractorMatchCollection>()
                 {
                    new RegExTractorMatchCollection()
@@ -704,7 +706,7 @@ namespace RegExTractorTests
             var comparer = new CompareLogic();
             comparer.Config.IgnoreCollectionOrder = true;
             var compareResult = comparer.Compare(expected, actual);
-            Assert.IsTrue(compareResult.AreEqual);
+            Assert.IsTrue(compareResult.AreEqual, compareResult.DifferencesString);
 
             Assert.AreEqual(expected.Count, actual.Count, "Another result set expected.");
         }

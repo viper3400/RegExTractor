@@ -34,7 +34,7 @@ namespace RegExTractorModules
 
             Bind<IRegExFileIterator>().To<AsyncFileIterator>();
 
-            Bind<IRegExCrawler>().To<AsyncRegExCrawler>();
+            Bind<IRegExCrawler>().To<SimpleRegExCrawler>().InThreadScope();
 
             Bind<IFileWriter>().To<FindingsXmlFileWriter>();
         }

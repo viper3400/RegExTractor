@@ -42,9 +42,12 @@ namespace RegExTractor
                 manualEvents[searchTermIndex] = new ManualResetEvent(false);
                 ThreadPool.QueueUserWorkItem(DoWork, new object[] { searchTerm, Content, FileName, FileFolder, manualEvents[searchTermIndex]});
             }
+            System.Diagnostics.Trace.TraceInformation(String.Format("Wait for threads."));
             WaitHandle.WaitAll(manualEvents);
+            System.Diagnostics.Trace.TraceInformation(String.Format("Threads finished."));
             var resultList = new List<Finding>();
-            for (int i = 1; i <= resultQueue.Count; i++)
+            //for (int i = 0; i <= resultQueue.Count; i++)
+            while(resultQueue.Count > 0)
             {
                 var dequed = resultQueue.Dequeue();
                 resultList.AddRange(dequed as List<Finding>);
@@ -66,10 +69,16 @@ namespace RegExTractor
             var fileFolder = array[3] as string;
             var manualEvent = array[4] as ManualResetEvent;
 
+            System.Diagnostics.Trace.TraceInformation(String.Format("Starting AsyncRegExCrawlerThread for {0}", searchTerm));
+
             var regExCrawler = new SimpleRegExCrawler();
             regExCrawler.SingleFileCrawlFinished += regExCrawler_SingleFileCrawlFinished;
             resultQueue.Enqueue(regExCrawler.Crawl(new List<RegExSearchTerm>() { searchTerm }, content, fileName, fileFolder));
+            
+            System.Diagnostics.Trace.TraceInformation(String.Format("Finish AsyncRegExCrawlerThread for {0}", searchTerm));
+
             manualEvent.Set();
+            
         }
 
         void regExCrawler_SingleFileCrawlFinished(object sender, ReportProgressEventArgs e)

@@ -29,7 +29,7 @@ namespace RegExTractor
         {
             var start = DateTime.Now;
             resultQueue = new System.Collections.Queue();
-            var chunkedFileLists = ChunkBy(FileList, 4);
+            var chunkedFileLists = ChunkBy(FileList, 64);
             foreach (var chunkedList in chunkedFileLists)
             {
                 SpawnThreads(chunkedList, SearchTermList, Crawler);
@@ -38,10 +38,14 @@ namespace RegExTractor
             System.Diagnostics.Trace.TraceInformation(String.Format("Duration: {0}:{1}:{2} ", duration.Hours, duration.Minutes, duration.Seconds));
 
             var resultList = new List<Finding>();
-            for (int i = 1; i <= resultQueue.Count; i++)
+            //for (int i = 0; i <= resultQueue.Count; i++)
+            while (resultQueue.Count > 0)
             {
+                System.Diagnostics.Trace.TraceInformation(String.Format("ResultQueueCount: {0} ", resultQueue.Count));
                 resultList.AddRange((List<Finding>)resultQueue.Dequeue());
             }
+            
+            System.Diagnostics.Trace.TraceInformation(String.Format("ResultListCount: {0} ", resultList.Count));
             return resultList;             
         }
 
