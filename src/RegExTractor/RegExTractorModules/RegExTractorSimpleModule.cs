@@ -32,7 +32,7 @@ namespace RegExTractorModules
 
             Bind<IRegExSearchTermProvider>().To<FlatFileSearchTermProvider>().WithConstructorArgument("SearchTermsInputFile", searchTermInputFile);
 
-            Bind<IRegExFileIterator>().To<AsyncFileIterator>();
+            Bind<IRegExFileIterator>().To<AsyncFileIterator>().WithConstructorArgument("MaxThreads", GlobalSettings.MaxAsyncFileIteratorThreads);
 
             Bind<IRegExCrawler>().To<SimpleRegExCrawler>().InThreadScope();
 

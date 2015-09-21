@@ -17,7 +17,17 @@ namespace RegExTractor
         private ManualResetEvent[] manualEvents;
         private System.Collections.Queue resultQueue;
         private bool canellationPending = false;
-        
+        private int maxThreads;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="MaxThreads"></param>
+        public AsyncFileIterator(int MaxThreads = 4)
+        {
+            maxThreads = MaxThreads;
+        }
+
         /// <summary>
         /// Iterates through the given file list an spawn a new thread per file for peforming the RegEx search.
         /// </summary>
@@ -29,7 +39,7 @@ namespace RegExTractor
         {
             var start = DateTime.Now;
             resultQueue = new System.Collections.Queue();
-            var chunkedFileLists = ChunkBy(FileList, 64);
+            var chunkedFileLists = ChunkBy(FileList, maxThreads);
             foreach (var chunkedList in chunkedFileLists)
             {
                 SpawnThreads(chunkedList, SearchTermList, Crawler);
