@@ -26,8 +26,9 @@ namespace RegExTractorWinForm
         private string filter;
         private string searchTermFile;
         private string outputFile;
+        private int maxThreads;
 
-        public ProgressDialog(string SearchDirectory, bool Recursive, string Filter, string SearchTermFile, string OutputFile)
+        public ProgressDialog(string SearchDirectory, bool Recursive, string Filter, string SearchTermFile, string OutputFile, int MaxThreads)
         {
             InitializeComponent();
             searchDirectory = SearchDirectory;
@@ -35,6 +36,7 @@ namespace RegExTractorWinForm
             filter = Filter;
             searchTermFile = SearchTermFile;
             outputFile = OutputFile;
+            maxThreads = MaxThreads;
 
             workflow = new RegExTractorSimpleWorkflow();
             workflow.SingleFileCrawlFinished += workflow_SingleFileCrawlFinished;
@@ -65,7 +67,7 @@ namespace RegExTractorWinForm
 
         void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            workflow.Process(searchDirectory, recursive, filter, searchTermFile, outputFile);
+            workflow.Process(searchDirectory, recursive, filter, searchTermFile, outputFile, maxThreads);
         }      
 
         private void btnCancel_Click(object sender, EventArgs e)

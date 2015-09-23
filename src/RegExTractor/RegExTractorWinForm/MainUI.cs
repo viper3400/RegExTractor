@@ -92,7 +92,7 @@ namespace RegExTractorWinForm
 
         private void btnDoWork_Click(object sender, EventArgs e)
         {
-            ProgressDialog progress = new ProgressDialog(tbSearchDirectory.Text, checkBoxRecursive.Checked, tBoxFileFilter.Text, tBoxSearchTermFile.Text, tBoxOutputFile.Text);
+            ProgressDialog progress = new ProgressDialog(tbSearchDirectory.Text, checkBoxRecursive.Checked, tBoxFileFilter.Text, tBoxSearchTermFile.Text, tBoxOutputFile.Text, RuntimeSettings.MaxThreads);
             progress.ShowDialog();
         }
 

@@ -100,5 +100,12 @@ namespace RegExTractorWinForm
             }
         }
         #endregion
+
+        private void numericUpDownThread_ValueChanged(object sender, EventArgs e)
+        {
+            RuntimeSettings.MaxThreads = Convert.ToInt32(numericUpDownThread.Value);
+        }
+
+       
     }
 }

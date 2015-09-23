@@ -11,10 +11,10 @@ namespace RegExTractorModules
 
         private IRegExFileIterator fileIterator;
 
-        public void Process(string Directory, bool Recursive, string Filter, string SearchTermInputFile, string XmlOutputFile)
+        public void Process(string Directory, bool Recursive, string Filter, string SearchTermInputFile, string XmlOutputFile, int MaxThreads)
         {
             var mainKernel = new StandardKernel(
-                new RegExTractorSimpleModule(Directory,Recursive,Filter,SearchTermInputFile));
+                new RegExTractorSimpleModule(Directory,Recursive,Filter,SearchTermInputFile, MaxThreads));
 
 
             // get IRegExCrawler and register event

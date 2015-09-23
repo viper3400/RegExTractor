@@ -12,14 +12,16 @@ namespace RegExTractorModules
         private bool recursive;
         private string filter;
         private string searchTermInputFile;
+        private int maxThreads;
         
 
-        public RegExTractorSimpleModule(string Directory, bool Recursive, string Filter,string SearchTermInputFile)
+        public RegExTractorSimpleModule(string Directory, bool Recursive, string Filter,string SearchTermInputFile, int MaxThreads)
         {
             directory = Directory;
             recursive = Recursive;
             filter = Filter;
             searchTermInputFile = SearchTermInputFile;
+            maxThreads = MaxThreads;
         }
 
         public override void Load()
@@ -32,7 +34,7 @@ namespace RegExTractorModules
 
             Bind<IRegExSearchTermProvider>().To<FlatFileSearchTermProvider>().WithConstructorArgument("SearchTermsInputFile", searchTermInputFile);
 
-            Bind<IRegExFileIterator>().To<AsyncFileIterator>().WithConstructorArgument("MaxThreads", GlobalSettings.MaxAsyncFileIteratorThreads);
+            Bind<IRegExFileIterator>().To<AsyncFileIterator>().WithConstructorArgument("MaxThreads", maxThreads);
 
             Bind<IRegExCrawler>().To<SimpleRegExCrawler>().InThreadScope();
 

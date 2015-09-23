@@ -45,9 +45,6 @@
     <Compile Include="AsyncFileIterator.cs" />
     <Compile Include="AsyncRegExCrawler.cs" />
     <Compile Include="FlatFileSearchTermProvider.cs" />
-    <Compile Include="GlobalSettings.cs" />
-    <Compile Include="PortableSettingsProvider.cs" />
-    <Compile Include="RegExTractorSettings.cs" />
     <Compile Include="SimpleFileListProvider.cs" />
     <Compile Include="DummySearchTermProvider.cs" />
     <Compile Include="FindingsXmlFileWriter.cs" />

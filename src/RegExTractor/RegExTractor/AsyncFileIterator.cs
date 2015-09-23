@@ -23,7 +23,7 @@ namespace RegExTractor
         /// Constructor
         /// </summary>
         /// <param name="MaxThreads"></param>
-        public AsyncFileIterator(int MaxThreads = 4)
+        public AsyncFileIterator(int MaxThreads)
         {
             maxThreads = MaxThreads;
         }
