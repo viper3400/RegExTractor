@@ -22,6 +22,9 @@ namespace RegExTractorConsole
         [Option('o',"outputfile", Required=true, HelpText="Sets the xml output file.")]
         public string OutputFile { get; set; }
 
+        [Option('t', "maxthreads", Required = false, DefaultValue = 8, HelpText = "Max. number of threads which will be used.")]
+        public int MaxThreads { get; set; }
+
         [ParserState]
         public IParserState LastParserState { get; set; }
 
