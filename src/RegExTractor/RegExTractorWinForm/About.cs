@@ -19,6 +19,7 @@ namespace RegExTractorWinForm
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+            HandleMaxThreadOverrideState();
         }
 
         #region Assembly Attribute Accessors
@@ -104,6 +105,43 @@ namespace RegExTractorWinForm
         private void numericUpDownThread_ValueChanged(object sender, EventArgs e)
         {
             RuntimeSettings.MaxThreads = Convert.ToInt32(numericUpDownThread.Value);
+        }
+
+        private void cBoxOverrideMaxThreads_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void HandleMaxThreadOverrideState()
+        {
+            if (RuntimeSettings.MaxThreads == 4)
+            {
+                numericUpDownThread.Enabled = false;
+                cBoxOverrideMaxThreads.Checked = false;
+            }
+            else
+            {
+                numericUpDownThread.Enabled = true;
+                cBoxOverrideMaxThreads.Checked = true;
+            }
+
+            numericUpDownThread.Value = RuntimeSettings.MaxThreads;
+        }
+
+        private void cBoxOverrideMaxThreads_Click(object sender, EventArgs e)
+        {
+            if (!cBoxOverrideMaxThreads.Checked)
+            {
+                // Reset max thread if checkbox get unchecked
+                RuntimeSettings.MaxThreads = 4;
+                HandleMaxThreadOverrideState();
+            }
+            else
+            {
+                // Warn user
+                MessageBox.Show(this, "Changing maximum threads may\r\nresult in serious stability issues!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numericUpDownThread.Enabled = true;
+            }            
         }
 
        

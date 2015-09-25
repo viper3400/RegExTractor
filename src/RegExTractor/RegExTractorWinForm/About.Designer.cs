@@ -37,9 +37,12 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.numericUpDownThread = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cBoxOverrideMaxThreads = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownThread)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -53,8 +56,7 @@
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
-            this.tableLayoutPanel.Controls.Add(this.numericUpDownThread, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.flowLayoutPanel1, 1, 5);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(12, 11);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -159,7 +161,8 @@
             // 
             // numericUpDownThread
             // 
-            this.numericUpDownThread.Location = new System.Drawing.Point(186, 337);
+            this.numericUpDownThread.Enabled = false;
+            this.numericUpDownThread.Location = new System.Drawing.Point(170, 3);
             this.numericUpDownThread.Maximum = new decimal(new int[] {
             64,
             0,
@@ -171,7 +174,7 @@
             0,
             0});
             this.numericUpDownThread.Name = "numericUpDownThread";
-            this.numericUpDownThread.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownThread.Size = new System.Drawing.Size(73, 22);
             this.numericUpDownThread.TabIndex = 25;
             this.numericUpDownThread.Value = new decimal(new int[] {
             4,
@@ -179,6 +182,28 @@
             0,
             0});
             this.numericUpDownThread.ValueChanged += new System.EventHandler(this.numericUpDownThread_ValueChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.cBoxOverrideMaxThreads);
+            this.flowLayoutPanel1.Controls.Add(this.numericUpDownThread);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(186, 337);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(367, 31);
+            this.flowLayoutPanel1.TabIndex = 24;
+            // 
+            // cBoxOverrideMaxThreads
+            // 
+            this.cBoxOverrideMaxThreads.AutoSize = true;
+            this.cBoxOverrideMaxThreads.Location = new System.Drawing.Point(3, 3);
+            this.cBoxOverrideMaxThreads.Name = "cBoxOverrideMaxThreads";
+            this.cBoxOverrideMaxThreads.Size = new System.Drawing.Size(161, 20);
+            this.cBoxOverrideMaxThreads.TabIndex = 26;
+            this.cBoxOverrideMaxThreads.Text = "Override max. threads:";
+            this.cBoxOverrideMaxThreads.UseVisualStyleBackColor = true;
+            this.cBoxOverrideMaxThreads.CheckedChanged += new System.EventHandler(this.cBoxOverrideMaxThreads_CheckedChanged);
+            this.cBoxOverrideMaxThreads.Click += new System.EventHandler(this.cBoxOverrideMaxThreads_Click);
             // 
             // About
             // 
@@ -201,6 +226,8 @@
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownThread)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -216,5 +243,7 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.NumericUpDown numericUpDownThread;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.CheckBox cBoxOverrideMaxThreads;
     }
 }
