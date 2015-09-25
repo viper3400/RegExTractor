@@ -13,7 +13,7 @@ namespace RegExTractorConsole
             {
                 var workflow = new RegExTractorSimpleWorkflow();
                 workflow.SingleFileCrawlFinished += workflow_SingleFileCrawlFinished;
-                workflow.Process(options.Directory, options.Recursive, options.Filter, options.SearchTermInputFile, options.OutputFile, 28);
+                workflow.Process(options.Directory, options.Recursive, options.Filter, options.SearchTermInputFile, options.OutputFile, 32);
             }
             
             Console.WriteLine("Finished ... Press any key ...");
