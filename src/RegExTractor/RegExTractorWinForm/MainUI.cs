@@ -41,8 +41,8 @@ namespace RegExTractorWinForm
         {
             var fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
-            fileDialog.Title = "Datei mit Suchbegriffen auswählen";
-            fileDialog.Filter = "Text-Dateien|*.txt|Alle Dateien|*.*";
+            fileDialog.Title = "Select a file with keywords";
+            fileDialog.Filter = "Text Files|*.txt|All Files|*.*";
 
 
             try
@@ -70,8 +70,8 @@ namespace RegExTractorWinForm
         private void SelectOutputFile()
         {
             var fileDialog = new SaveFileDialog();
-            fileDialog.Title = "XML Ausgabe speichern unter ...";
-            fileDialog.Filter = "XML-Dateien|*.xml|Alle Dateien|*.*";
+            fileDialog.Title = "Save XML output as ...";
+            fileDialog.Filter = "XML Files|*.xml|All Files|*.*";
 
             try
             {

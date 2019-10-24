@@ -38,7 +38,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(105, 40);
             this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Abbrechen";
+            this.btnCancel.Text = "Abort";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -50,7 +50,7 @@
             this.labelProgress.Name = "labelProgress";
             this.labelProgress.Size = new System.Drawing.Size(112, 17);
             this.labelProgress.TabIndex = 1;
-            this.labelProgress.Text = "Suche gestartet.";
+            this.labelProgress.Text = "Search started.";
             // 
             // ProgressDialog
             // 
@@ -65,7 +65,7 @@
             this.Name = "ProgressDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "RegExTractor Suche - Fortschritt";
+            this.Text = "RegExTractor Search - Progress";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgressDialog_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
