@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Zu durchsuchendes Verzeichnis";
+            this.label1.Text = "directory to be searched";
             // 
             // tbSearchDirectory
             // 
@@ -80,7 +80,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Dateifilter";
+            this.label2.Text = "file filter";
             // 
             // checkBoxRecursive
             // 
@@ -89,7 +89,7 @@
             this.checkBoxRecursive.Name = "checkBoxRecursive";
             this.checkBoxRecursive.Size = new System.Drawing.Size(225, 20);
             this.checkBoxRecursive.TabIndex = 5;
-            this.checkBoxRecursive.Text = "Verzeichnis rekursiv durchsuchen";
+            this.checkBoxRecursive.Text = "Search directory recursively";
             this.checkBoxRecursive.UseVisualStyleBackColor = true;
             // 
             // tBoxFileFilter
@@ -107,7 +107,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(223, 16);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Datei mit regulären Suchausdrücken";
+            this.label3.Text = "File with regular search expressions";
             // 
             // tBoxSearchTermFile
             // 
@@ -133,7 +133,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 16);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Ausgabedatei";
+            this.label4.Text = "output file";
             // 
             // tBoxOutputFile
             // 
@@ -158,7 +158,7 @@
             this.btnDoWork.Name = "btnDoWork";
             this.btnDoWork.Size = new System.Drawing.Size(127, 32);
             this.btnDoWork.TabIndex = 13;
-            this.btnDoWork.Text = "Suche starten";
+            this.btnDoWork.Text = "start search";
             this.btnDoWork.UseVisualStyleBackColor = true;
             this.btnDoWork.Click += new System.EventHandler(this.btnDoWork_Click);
             // 
@@ -173,7 +173,7 @@
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
             this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.überToolStripMenuItem.Text = "Über ...";
+            this.überToolStripMenuItem.Text = "about ...";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
             // RegExTractorMainUI

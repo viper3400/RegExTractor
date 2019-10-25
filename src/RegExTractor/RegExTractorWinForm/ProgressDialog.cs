@@ -78,7 +78,7 @@ namespace RegExTractorWinForm
         private void CancelAsync()
         {
             workflow.CancelAsync();
-            this.Text = this.Text + " (Abbruch, bitte warten ...)";
+            this.Text = this.Text + " (Cancel, please wait ...)";
             this.btnCancel.Enabled = false;
         }
 
@@ -87,7 +87,7 @@ namespace RegExTractorWinForm
             if (backgroundWorker.IsBusy)
             {
                 e.Cancel = true;
-                MessageBox.Show("Suche läuft ... \r\nZum Abbruch bitte Schaltfläche benutzen!");                
+                MessageBox.Show("Searching ... \r\nPlease use button to cancel!");                
             }
         }
     }
