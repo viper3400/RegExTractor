@@ -50,24 +50,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 22);
+            this.label1.Location = new System.Drawing.Point(21, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 16);
+            this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "directory to be searched";
+            this.label1.Text = "Directory to be searched";
             // 
             // tbSearchDirectory
             // 
-            this.tbSearchDirectory.Location = new System.Drawing.Point(31, 43);
+            this.tbSearchDirectory.Location = new System.Drawing.Point(23, 35);
+            this.tbSearchDirectory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbSearchDirectory.Name = "tbSearchDirectory";
-            this.tbSearchDirectory.Size = new System.Drawing.Size(391, 22);
+            this.tbSearchDirectory.Size = new System.Drawing.Size(294, 20);
             this.tbSearchDirectory.TabIndex = 1;
             // 
             // bntSelectDirectory
             // 
-            this.bntSelectDirectory.Location = new System.Drawing.Point(428, 38);
+            this.bntSelectDirectory.Location = new System.Drawing.Point(321, 31);
+            this.bntSelectDirectory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bntSelectDirectory.Name = "bntSelectDirectory";
-            this.bntSelectDirectory.Size = new System.Drawing.Size(33, 33);
+            this.bntSelectDirectory.Size = new System.Drawing.Size(25, 27);
             this.bntSelectDirectory.TabIndex = 2;
             this.bntSelectDirectory.Text = "...";
             this.bntSelectDirectory.UseVisualStyleBackColor = true;
@@ -76,51 +79,57 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 105);
+            this.label2.Location = new System.Drawing.Point(21, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "file filter";
+            this.label2.Text = "File Filter";
             // 
             // checkBoxRecursive
             // 
             this.checkBoxRecursive.AutoSize = true;
-            this.checkBoxRecursive.Location = new System.Drawing.Point(31, 72);
+            this.checkBoxRecursive.Location = new System.Drawing.Point(23, 58);
+            this.checkBoxRecursive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxRecursive.Name = "checkBoxRecursive";
-            this.checkBoxRecursive.Size = new System.Drawing.Size(225, 20);
+            this.checkBoxRecursive.Size = new System.Drawing.Size(156, 17);
             this.checkBoxRecursive.TabIndex = 5;
             this.checkBoxRecursive.Text = "Search directory recursively";
             this.checkBoxRecursive.UseVisualStyleBackColor = true;
             // 
             // tBoxFileFilter
             // 
-            this.tBoxFileFilter.Location = new System.Drawing.Point(31, 125);
+            this.tBoxFileFilter.Location = new System.Drawing.Point(23, 102);
+            this.tBoxFileFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBoxFileFilter.Name = "tBoxFileFilter";
-            this.tBoxFileFilter.Size = new System.Drawing.Size(391, 22);
+            this.tBoxFileFilter.Size = new System.Drawing.Size(294, 20);
             this.tBoxFileFilter.TabIndex = 6;
             this.tBoxFileFilter.Text = "*.*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 164);
+            this.label3.Location = new System.Drawing.Point(21, 133);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(223, 16);
+            this.label3.Size = new System.Drawing.Size(173, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "File with regular search expressions";
             // 
             // tBoxSearchTermFile
             // 
-            this.tBoxSearchTermFile.Location = new System.Drawing.Point(31, 184);
+            this.tBoxSearchTermFile.Location = new System.Drawing.Point(23, 150);
+            this.tBoxSearchTermFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBoxSearchTermFile.Name = "tBoxSearchTermFile";
-            this.tBoxSearchTermFile.Size = new System.Drawing.Size(391, 22);
+            this.tBoxSearchTermFile.Size = new System.Drawing.Size(294, 20);
             this.tBoxSearchTermFile.TabIndex = 8;
             // 
             // btnSelectSearchTermFile
             // 
-            this.btnSelectSearchTermFile.Location = new System.Drawing.Point(428, 179);
+            this.btnSelectSearchTermFile.Location = new System.Drawing.Point(321, 145);
+            this.btnSelectSearchTermFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSelectSearchTermFile.Name = "btnSelectSearchTermFile";
-            this.btnSelectSearchTermFile.Size = new System.Drawing.Size(33, 33);
+            this.btnSelectSearchTermFile.Size = new System.Drawing.Size(25, 27);
             this.btnSelectSearchTermFile.TabIndex = 9;
             this.btnSelectSearchTermFile.Text = "...";
             this.btnSelectSearchTermFile.UseVisualStyleBackColor = true;
@@ -129,24 +138,27 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 220);
+            this.label4.Location = new System.Drawing.Point(21, 179);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 16);
+            this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "output file";
+            this.label4.Text = "Output File";
             // 
             // tBoxOutputFile
             // 
-            this.tBoxOutputFile.Location = new System.Drawing.Point(31, 240);
+            this.tBoxOutputFile.Location = new System.Drawing.Point(23, 195);
+            this.tBoxOutputFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tBoxOutputFile.Name = "tBoxOutputFile";
-            this.tBoxOutputFile.Size = new System.Drawing.Size(391, 22);
+            this.tBoxOutputFile.Size = new System.Drawing.Size(294, 20);
             this.tBoxOutputFile.TabIndex = 11;
             // 
             // btnSelectOutputFile
             // 
-            this.btnSelectOutputFile.Location = new System.Drawing.Point(428, 235);
+            this.btnSelectOutputFile.Location = new System.Drawing.Point(321, 191);
+            this.btnSelectOutputFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSelectOutputFile.Name = "btnSelectOutputFile";
-            this.btnSelectOutputFile.Size = new System.Drawing.Size(33, 33);
+            this.btnSelectOutputFile.Size = new System.Drawing.Size(25, 27);
             this.btnSelectOutputFile.TabIndex = 12;
             this.btnSelectOutputFile.Text = "...";
             this.btnSelectOutputFile.UseVisualStyleBackColor = true;
@@ -154,11 +166,12 @@
             // 
             // btnDoWork
             // 
-            this.btnDoWork.Location = new System.Drawing.Point(31, 286);
+            this.btnDoWork.Location = new System.Drawing.Point(23, 232);
+            this.btnDoWork.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDoWork.Name = "btnDoWork";
-            this.btnDoWork.Size = new System.Drawing.Size(127, 32);
+            this.btnDoWork.Size = new System.Drawing.Size(95, 26);
             this.btnDoWork.TabIndex = 13;
-            this.btnDoWork.Text = "start search";
+            this.btnDoWork.Text = "Start Search";
             this.btnDoWork.UseVisualStyleBackColor = true;
             this.btnDoWork.Click += new System.EventHandler(this.btnDoWork_Click);
             // 
@@ -167,18 +180,18 @@
             this.ctxMenuMainUi.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.überToolStripMenuItem});
             this.ctxMenuMainUi.Name = "ctxMenuMainUi";
-            this.ctxMenuMainUi.Size = new System.Drawing.Size(153, 48);
+            this.ctxMenuMainUi.Size = new System.Drawing.Size(118, 26);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.überToolStripMenuItem.Text = "about ...";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
             // RegExTractorMainUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnDoWork);
             this.Controls.Add(this.btnSelectOutputFile);
@@ -193,8 +206,9 @@
             this.Controls.Add(this.bntSelectDirectory);
             this.Controls.Add(this.tbSearchDirectory);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RegExTractorMainUI";
-            this.Size = new System.Drawing.Size(500, 341);
+            this.Size = new System.Drawing.Size(375, 277);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RegExTractorMainUI_MouseClick);
             this.ctxMenuMainUi.ResumeLayout(false);
             this.ResumeLayout(false);
